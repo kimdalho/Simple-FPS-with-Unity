@@ -1,110 +1,70 @@
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+
 
 public class MobileInputController : MonoBehaviour , IInputEventProvider
 {
-    [Header("UI References")]
-    public RectTransform joystickBG;
-    public RectTransform joystickHandle;
+    [Header("InputActionAsset (디버그용)")]
+    public InputActionAsset inputActions;
 
-    private bool isDragging = false;
+    private InputAction moveAction;
+    private InputAction lookAction;
 
-    [Header("Raycast Settings")]
-    public GraphicRaycaster uiRaycaster;
-    public EventSystem eventSystem;
+    [Header("조이스틱")]
+    public MinimalJoystick moveJoystick;
+    public MinimalJoystick lookJoystick;
 
-    [Header("Raycast")]
-    public Camera mainCamera;
+    [Header("입력 상태")]
+    public Vector2 moveInput;
+    public Vector2 lookInput;
+    public bool isShooting;
+    public bool isAiming;
+    public bool isSprinting;
 
-    public Vector2 moveInputDirection => inputVector;
-    protected Vector2 inputVector;
-    public Vector2 lookInputDirection => inputVector2;
-    protected Vector2 inputVector2;
-    public InputAction pointerAction { get; set; }
-
-    private void OnEnable()
+    void Awake()
     {
-        pointerAction.Enable();
+        moveAction = inputActions.FindAction("Player/Move");
+        lookAction = inputActions.FindAction("Player/Look");
+
+        moveAction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        moveAction.canceled += ctx => moveInput = Vector2.zero;
+
+        lookAction.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
+        lookAction.canceled += ctx => lookInput = Vector2.zero;
     }
 
-    private void OnDisable()
+    void OnEnable() => inputActions.Enable();
+    void OnDisable() => inputActions.Disable();
+
+    void Update()
     {
-        pointerAction.Disable();
+#if UNITY_ANDROID
+        moveInput = moveJoystick.Direction;
+        lookInput = lookJoystick.Direction;
+#endif
     }
 
-    private void Update()
+
+    // UI 버튼 연결
+    public void OnJumpButton() => Debug.Log("Jump");
+    public void OnFireDown() => isShooting = true;
+    public void OnFireUp() => isShooting = false;
+    public void OnAimDown() => isAiming = true;
+    public void OnAimUp() => isAiming = false;
+    public void OnSprintDown() => isSprinting = true;
+    public void OnSprintUp() => isSprinting = false;
+    public void OnReloadButton() => Debug.Log("Reload");
+    public void OnMeleeButton() => Debug.Log("Melee");
+
+    public Vector2 GetMoveInput()
     {
-        if (Touchscreen.current != null)
-        {
-            isDragging = Touchscreen.current.primaryTouch.press.isPressed;
-        }
-        else
-        {
-            isDragging = Mouse.current.leftButton.isPressed;
-        }
-
-        Vector2 screenPos = pointerAction.ReadValue<Vector2>();
-
-        if (isDragging)
-        {
-            if (IsPointerOverJoystick(screenPos))
-            {
-                UpdateJoystick(screenPos);
-            }
-            else
-            {
-                ResetJoystick();
-            }
-        }
-        else
-        {
-            ResetJoystick();
-        }
+        return moveInput;
     }
 
-    void UpdateJoystick(Vector2 screenPosition)
+    public Vector2 GetLookInput()
     {
-        Vector2 localPoint;
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            joystickBG, screenPosition, null, out localPoint))
-        {
-            Vector2 normalized = new Vector2(
-                (localPoint.x / joystickBG.sizeDelta.x) * 2,
-                (localPoint.y / joystickBG.sizeDelta.y) * 2);
-
-            inputVector = normalized.magnitude > 1 ? normalized.normalized : normalized;
-
-
-            joystickHandle.anchoredPosition = new Vector2(
-                inputVector.x * joystickBG.sizeDelta.x / 2,
-                inputVector.y * joystickBG.sizeDelta.y / 2);
-        }
-    }
-
-    void ResetJoystick()
-    {
-        inputVector = Vector2.zero;
-        joystickHandle.anchoredPosition = Vector2.zero;
-    }
-
-    bool IsPointerOverJoystick(Vector2 screenPosition)
-    {
-        PointerEventData pointerData = new PointerEventData(eventSystem)
-        {
-            position = screenPosition
-        };
-
-        List<RaycastResult> results = new List<RaycastResult>();
-        uiRaycaster.Raycast(pointerData, results);
-
-        foreach (var result in results)
-        {
-            if (result.gameObject == joystickBG.gameObject || result.gameObject.transform.IsChildOf(joystickBG))
-                return true;
-        }
-        return false;
+        return lookInput;  
     }
 }

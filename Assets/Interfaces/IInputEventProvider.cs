@@ -5,8 +5,19 @@ using UnityEngine.InputSystem;
 /// </summary>
 public interface IInputEventProvider
 {
-    //ÀÎÇ²¾×¼Ç    
-    InputAction pointerAction { get; set; }
-    public Vector2 moveInputDirection { get; }
-    public Vector2 lookInputDirection { get; }
+
+
+    public Vector2 GetMoveInput();
+
+    public Vector2 GetLookInput();
+
+    public void OnJumpButton();
+    public void OnFireDown();
+    public void OnFireUp();
+    public void OnAimDown();
+    public void OnAimUp();
+    public void OnSprintDown();
+    public void OnSprintUp();
+    public void OnReloadButton();
+    public void OnMeleeButton();
 }
