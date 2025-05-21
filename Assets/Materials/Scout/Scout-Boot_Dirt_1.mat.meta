@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0f34b0386a941754dbc517d66eb3b047
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198885
+  packageName: Sci-Fi Scout
+  packageVersion: 1.0
+  assetPath: Assets/Polygonmaker/Scout/Source/Materials/Scout-Boot_Dirt_1.mat
+  uploadId: 446278

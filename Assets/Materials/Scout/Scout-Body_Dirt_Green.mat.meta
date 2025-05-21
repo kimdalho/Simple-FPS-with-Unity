@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 13242cf8da66e9545bfaa9cbc0767a04
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198885
+  packageName: Sci-Fi Scout
+  packageVersion: 1.0
+  assetPath: Assets/Polygonmaker/Scout/Source/Materials/Scout-Body_Dirt_Green.mat
+  uploadId: 446278

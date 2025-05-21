@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f2d2771dcced26040bc9c186ae6a80b9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198885
+  packageName: Sci-Fi Scout
+  packageVersion: 1.0
+  assetPath: Assets/Polygonmaker/Scout/Source/Materials/Scout-Body_Clean_Red.mat
+  uploadId: 446278

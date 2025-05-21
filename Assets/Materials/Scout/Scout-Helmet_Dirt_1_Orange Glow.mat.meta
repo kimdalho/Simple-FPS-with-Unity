@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e325e2ae83663d14bbd817e934d77f6b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198885
+  packageName: Sci-Fi Scout
+  packageVersion: 1.0
+  assetPath: Assets/Polygonmaker/Scout/Source/Materials/Scout-Helmet_Dirt_1_Orange
+    Glow.mat
+  uploadId: 446278

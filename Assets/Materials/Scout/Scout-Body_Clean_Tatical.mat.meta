@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bd3e1c4a386ae7442885db11a084a5d1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198885
+  packageName: Sci-Fi Scout
+  packageVersion: 1.0
+  assetPath: Assets/Polygonmaker/Scout/Source/Materials/Scout-Body_Clean_Tatical.mat
+  uploadId: 446278
