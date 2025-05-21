@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 97dd4fbc2363db347b5e6914adb204bf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198885
+  packageName: Sci-Fi Scout
+  packageVersion: 1.0
+  assetPath: Assets/Polygonmaker/Scout/Source/Materials/Scout-Body_Dirt_Leather.mat
+  uploadId: 446278

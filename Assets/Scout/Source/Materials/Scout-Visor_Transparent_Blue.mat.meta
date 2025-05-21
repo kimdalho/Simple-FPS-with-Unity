@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6335221090edba3479e0a4d0cb3f0f7b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198885
+  packageName: Sci-Fi Scout
+  packageVersion: 1.0
+  assetPath: Assets/Polygonmaker/Scout/Source/Materials/Scout-Visor_Transparent_Blue.mat
+  uploadId: 446278

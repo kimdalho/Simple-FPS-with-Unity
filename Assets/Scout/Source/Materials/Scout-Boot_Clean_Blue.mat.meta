@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0e90b3ff182e07440ba7da3b7c32da54
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198885
+  packageName: Sci-Fi Scout
+  packageVersion: 1.0
+  assetPath: Assets/Polygonmaker/Scout/Source/Materials/Scout-Boot_Clean_Blue.mat
+  uploadId: 446278
