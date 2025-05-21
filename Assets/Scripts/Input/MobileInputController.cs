@@ -14,7 +14,6 @@ public class MobileInputController : MonoBehaviour , IInputEventProvider
 
     [Header("조이스틱")]
     public MinimalJoystick moveJoystick;
-    public MinimalJoystick lookJoystick;
 
     [Header("입력 상태")]
     public Vector2 moveInput;
@@ -40,10 +39,8 @@ public class MobileInputController : MonoBehaviour , IInputEventProvider
 
     void Update()
     {
-#if UNITY_ANDROID
-        moveInput = moveJoystick.Direction;
-        lookInput = lookJoystick.Direction;
-#endif
+        //테스트용
+        //moveInput = moveJoystick.Direction;
     }
 
 
