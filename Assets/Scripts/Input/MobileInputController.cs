@@ -36,12 +36,6 @@ public class MobileInputController : MonoBehaviour , IInputEventProvider
     void OnEnable() => inputActions.Enable();
     void OnDisable() => inputActions.Disable();
 
-    void Update()
-    {        
-        moveInput = moveJoystick.Direction;
-    }
-
-
     // UI 버튼 연결
     public void OnJumpButton() => Debug.Log("Jump");
     public void OnFireDown() => isShooting = true;
@@ -55,7 +49,7 @@ public class MobileInputController : MonoBehaviour , IInputEventProvider
 
     public Vector2 GetMoveInput()
     {
-        return moveInput;
+        return moveJoystick.Direction;
     }
 
     public Vector2 GetLookInput()
