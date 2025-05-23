@@ -1,6 +1,5 @@
 
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem;
 
 
@@ -24,8 +23,8 @@ public class MobileInputController : MonoBehaviour , IInputEventProvider
 
     void Awake()
     {
-        moveAction = inputActions.FindAction("Player/Move");
-        lookAction = inputActions.FindAction("Player/Look");
+        moveAction = inputActions.FindAction(GlobalInputAction.PlayerMove);
+        lookAction = inputActions.FindAction(GlobalInputAction.PlayerLook);
 
         moveAction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         moveAction.canceled += ctx => moveInput = Vector2.zero;
@@ -38,9 +37,8 @@ public class MobileInputController : MonoBehaviour , IInputEventProvider
     void OnDisable() => inputActions.Disable();
 
     void Update()
-    {
-        //테스트용
-        //moveInput = moveJoystick.Direction;
+    {        
+        moveInput = moveJoystick.Direction;
     }
 
 
